@@ -432,7 +432,7 @@
 // 204: 客户端发来的请求被服务器正常处理了，但是没有返回内容
 // 206: 客户端进行了范围请求，服务器执行了这部分get请求
 
-// 301: 永久重定向 
+// 301: 永久重定向
 // 302: 临时重定向
 // 304: 命中协商缓存时返回
 
@@ -504,3 +504,66 @@
 // cookie数据会自动传递到服务器，l和s保存在本地
 
 // 防抖节流 三次握四挥手
+
+// 首先执行同步代码
+
+// async function asyncl() {
+//   console.log("asyncl start"); // 2
+//   await async2();
+//   console.log("asyncl end"); // 微任务1
+// }
+// async function async2() {
+//   console.log("async2 start"); // 3
+//   return new Promise((resolve, reject) => {
+//     resolve();
+//     console.log("async2 promise");
+//   });
+// }
+// console.log("script start"); // 1
+// setTimeout(function () {
+//   console.log("setTimeout");
+// }, 0);
+// asyncl();
+// new Promise(function (resolve) {
+//   console.log("promise1");
+//   resolve();
+// })
+//   .then(function () {
+//     console.log("promise2");
+//   })
+//   .then(function () {
+//     console.log("promise3");
+//   });
+// console.log("script end");
+
+// async function async1() {
+//   console.log("async1 start"); // 2
+//   await async2();
+//   console.log("async1 end"); // 6微任务
+// }
+
+// async function async2() {
+//   console.log("async2"); // 3
+// }
+
+// console.log("script start"); // 1
+
+// setTimeout(function () {
+//   console.log("setTimeout"); // 7宏仁吾
+// }, 0);
+
+// async1();
+
+// new Promise(function (resolve) {
+//   console.log("promise1"); // 4
+//   resolve();
+// }).then(function () {
+//   console.log("promise2"); // 6微任务
+// });
+// console.log("script end"); // 5
+
+// beforecreate created beforemount mounted beforeupdate updated before descoty desotryed
+// activated deactivated
+
+// computed是计算属性，属性的结果会被缓存，当computed中所依赖的属性没有改变时，那么调用当前函数的时候就会从缓存中读取，当属性变化时才会重新计算，
+// watch是属性监听，是一个对象键是需要观察的属性，值是对应的函数返回值，用来监听某些特定数据的变化，从而进行具体的业务逻辑操作
