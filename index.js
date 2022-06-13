@@ -623,7 +623,6 @@
 // beforeDestory: 实例销毁前调用，这时候还可以获取刀实例
 // destory 实例销毁后调用，事件监听器被移除，所有子实例被销毁
 
-
 // props $emits
 // provide/inject
 // refs
@@ -650,3 +649,35 @@
 // update: modelValue
 // 可以在同一个组件上使用多个v-model绑定
 
+// 创建一个空对象
+// 将构造函数的作用域付给新对象
+// 执行构造函数
+// 返回新对象
+
+// 创建一个空对象
+// 将构造函数的作用域赋给新对象
+// 执行构造函数
+// 返回新对象
+
+// A instanceof B
+// B的prototype所指向的原型对象是否在A的原型链上
+// function InstanceOf(L, R) {
+//   if (typeof L === "object" || L === null) return false;
+//   let p = Object.getPrototypeOf(L);
+//   while (true) {
+//     if (p === null) return false;
+//     if (p === R.prototype) return true;
+//     p = Object.getPrototypeOf(p);
+//   }
+// }
+// console.log(InstanceOf("111", String));
+// console.log(InstanceOf(new String("111"), String));
+
+// number string boolean obejct null undefined bigint symbol 创建第一解决变冲突数字类型的数据
+// console.log(Object.prototype.toString.call([]) === "[object Array]");
+// prototype是函数的原型对象,会被对应的__proto__引用
+// __proto__引用了哪个protoype，看哪个函数构造了你，那proto就是那个构造函数的prototype
+
+// prototype是函数的原型对象，会被对应的__protot__引用
+// 看哪个构造函数创建了你,你的proto就是那个构造函数的prototype
+// Object.prototype.__proto__ === null
