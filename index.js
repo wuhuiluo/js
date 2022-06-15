@@ -681,3 +681,71 @@
 // prototype是函数的原型对象，会被对应的__protot__引用
 // 看哪个构造函数创建了你,你的proto就是那个构造函数的prototype
 // Object.prototype.__proto__ === null
+
+// BFC是块级格式化上下文，是一个完全独立的容器，内部子元素的布局不会受到外界影响
+// 创建BFC
+// overflow hidden
+// display: flex
+// position asolute
+// fixed
+// 解决垂直方向上margin重叠
+// float导致脱离文档流，父元素高度塌陷
+
+// px 绝对单位 网页开发的基本单位
+// em 相对单位 当前盒子的字体大小
+// rem 相对单位 根元素HTML
+// vw 相对 相对于当前视口的宽度
+// vh 当前视口的高度
+
+// em 当前盒子的字体大小
+// rem根元素
+
+// Promise 有三种状态 pending fulfiled rejected
+// 状态只能由pendding转换为ful
+// pending -> reject 会一直保持这个状态
+// then方法可以返回成功或者失败的值
+// .catch抛出异常，值接受rejected失败的函数，也会返回一个新的promise
+// Promise.all 是当所有的promise实例都resolve之后才会执行回调，当有一个实例reject的话就会执行reject回调
+// allsettled 在resolve状态时为 status: 'fulfiled' value state:' rejected' resason
+
+// all 全部成功才会触发，有一个异常就会触发reject的
+// allsetted status value status reason 不管成功还是失败等执行结束一起返回
+// any: 谁先成功先返回
+// race: 谁先执行完先返回
+
+// 防抖多次只触发一次
+// 指定的事件间隔内只触发一次
+
+// function debounce(fn, wait) {
+//   let timer = null;
+//   return function () {
+//     clearTimeout(timer);
+//     timer = setTimeout(() => {
+//       fn.apply(this, arguments);
+//     }, wait);
+//   };
+// }
+
+// function throttle(fn, wati) {
+//   let flag = true;
+//   return function () {
+//     if (!flag) return;
+//     flag = false;
+//     setTimeout(() => {
+//       fn.apply(this, arguments);
+//       flag = true;
+//     });
+//   };
+// }
+
+// 首先先将整个任务作为一个宏任务执行
+// 碰到同步代码直接执行，宏仁吾进入宏仁吾队列，微任务进入微任务队列，
+// 当宏仁吾队列执行完，检查微任务列表，有微任务则执行完所有的微任务
+// 然后执行完本轮的宏仁吾
+
+// 先将整个脚本作为一个宏仁吾执行
+// 执行完所有的同步代码，宏仁吾进入宏仁吾队列，微任务进入微任务队列，
+// 当前宏仁吾执行完之后出队，检查微任务列表，有责一次执行完
+// 执行完本轮的宏仁吾回到刚刚的第二步知道所有的微任务和宏仁吾都执行完毕
+
+
